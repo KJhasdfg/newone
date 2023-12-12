@@ -1,0 +1,21 @@
+<!-- sentiment_analysis_app/templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Results</title>
+</head>
+<body>
+    <h2>Analysis Results</h2>
+   
+    <ul>
+        {% for text in texts %}
+            <li>{{ text.sentiment }} - Sentiment: {{ text.sentimentDescription }} - Sentiment Score: {{ text.score }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'clear_history' %}">
+        {% csrf_token %}
+        <input type="submit" value="Clear History">
+    </form>
+</body>
+</html>
