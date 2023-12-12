@@ -52,11 +52,12 @@
             color: #fff;
             padding-top: 20px;
             position: fixed;
-            height: 100%;
+            height: 86%;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 117px;
         }
 
         .side-navbar .row {
@@ -109,18 +110,21 @@
             width: 100%; /* Set the width of the navbar container */
             margin: 0 auto; /* Center the navbar container */
         }
-
+.form-control{
+    width: 200px;
+    height: 36px;
+}
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand">Home</a>
-            <a class="navbar-brand">Menu1</a>
-            <a class="navbar-brand">Menu2</a>
-            <a class="navbar-brand">Menu3</a>
+            <img src="../static/images/logo-bw.png">
+            <a class="nav-link" href="#Services">Services</a>
+            <a class="nav-link" href="#Doctor">Find Doctor</a>
+            <a class="nav-link" href="#FAQ">FAQ</a>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control " type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -129,14 +133,14 @@
     <!-- Side Navbar -->
     <div class="side-navbar">
         <div class="row">
-            <img src="../static/images/logo-bw.png">
-
         </div>
         <div class="row">
             <a href="{% url 'analyze_text' %}">Analyze Text</a>
             <a href="{% url 'result' %}">Analysis Result</a>
         </div>
     </div>
+
+
 
     <!-- Main Content -->
     <div class="main-content">
