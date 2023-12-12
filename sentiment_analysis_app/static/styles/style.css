@@ -757,3 +757,11 @@ a {
   width: 100%;
 }
 
+.form-control{
+  width: 61%;
+  height: 37px;
+}
+
+.col-md-5{
+  padding: 87px;
+}
