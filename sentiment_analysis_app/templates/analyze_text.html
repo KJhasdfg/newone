@@ -1,16 +1,161 @@
-<!-- sentiment_analysis_app/templates/analyze_text.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Analyze Text</title>
+    <!-- Add this line to include Font Awesome CSS -->
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 44px;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 315px;
+        }
+
+        button {
+            background: linear-gradient(82deg, #1EABE2 -22.52%, #6EC386 107.96%);
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Side Navbar Styles */
+        .side-navbar {
+            width: 200px;
+            background: linear-gradient(82deg, #1EABE2 -22.52%, #6EC386 107.96%);
+            color: #fff;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .side-navbar .row {
+            margin-bottom: 10px;
+        }
+
+        .side-navbar img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .side-navbar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-navbar a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            margin-left: 200px;
+            padding: 20px;
+        }
+
+        nav.navbar {
+            background:linear-gradient(82deg, #1EABE2 -22.52%, #6EC386 107.96%);
+            color: #fff;
+            padding: 15px;
+        }
+
+        nav.navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 20px; /* Adjust margin between navbar items */
+        }
+
+        .container-fluid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%; /* Set the width of the navbar container */
+            margin: 0 auto; /* Center the navbar container */
+        }
+
+    </style>
 </head>
 <body>
-    <h2>Analyze Text</h2>
-    <form method="post" action="{% url 'analyze_text' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand">Home</a>
+            <a class="navbar-brand">Menu1</a>
+            <a class="navbar-brand">Menu2</a>
+            <a class="navbar-brand">Menu3</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Side Navbar -->
+    <div class="side-navbar">
+        <div class="row">
+            <img src="../static/images/logo-bw.png">
+
+        </div>
+        <div class="row">
+            <a href="{% url 'analyze_text' %}">Analyze Text</a>
+            <a href="{% url 'result' %}">Analysis Result</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Analyze Text Form -->
+        <h2>Analyze Text</h2>
+        <form method="post" action="{% url 'analyze_text' %}" id="analyzeForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Example JavaScript (you can add more as needed)
+        document.getElementById('analyzeForm').addEventListener('submit', function() {
+            // You can add additional form validation or AJAX submission here
+            // For now, let's keep it simple
+            alert('Form submitted!');
+        });
+    </script>
 </body>
 </html>

@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from .forms import AnalyzedTextForm
 from .models import AnalyzedText
 from django.http import HttpResponse
+
+
 def analyze_text(request):
     if request.method == 'POST':
         form = AnalyzedTextForm(request.POST)
@@ -30,16 +32,7 @@ def result(request):
 
     return render(request, 'result.html', {'texts': data})
 
-
-
-    
-    return render(request, 'result.html', {'texts': data})
-
 def clear_history(request):
-    # Add logic to clear the analysis history (delete records from the database, etc.)
-    # ...
-
-    # Redirect to the result page or any other desired page after clearing history
     return render(request, 'result.html', {'texts': []})
 
 def LandingPage(request):
